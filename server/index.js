@@ -13,20 +13,28 @@ mongoose.connect(process.env.MONGO)
                 console.log(`Error : ${err}`);
         })
 
+const __dirname = path.resolve()
+
 const app = express();
+
 app.use(express.json())
 app.use(cookieParser())
 
+
+app.listen(4000, () => {
+        console.log(`Server is running on PORT 4000`);
+})
 
 
 app.use('/api/auth', authRouter)
 app.use("/api/user", userRouter)
 
-app.use(express.static(path.join(__dirname,'client/dist')))
+app.use(express.static(path.join(__dirname, '/client/dist')));
 
-app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname,'client','dist','index.html'))
+app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 })
+
 
 app.use((err, req, res, next) => {
         const statusCode = err.statusCode || 500;
@@ -39,9 +47,4 @@ app.use((err, req, res, next) => {
 })
 
 
-const __dirname=path.resolve()
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => {
-        console.log(`Server is running on PORT 4000`);
-})

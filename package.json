@@ -1,0 +1,20 @@
+{
+  "name": "attendance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"npm install && npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidish15/Attendance-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidish15/Attendance-App/issues"
+  },
+  "homepage": "https://github.com/sidish15/Attendance-App#readme"
+}
